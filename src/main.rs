@@ -22,5 +22,15 @@ fn main() {
 
     aether.connect(peer_username.clone());
 
-    loop {}
+    aether.wait_connection(&peer_username).unwrap();
+
+    loop {
+        let mut message = String::new();
+        stdin().read_line(&mut message).unwrap();
+        aether
+            .send_to(&peer_username, message.into_bytes())
+            .unwrap();
+        let recved = aether.recv_from(&peer_username).unwrap();
+        println!("{}: {}", peer_username, String::from_utf8(recved).unwrap());
+    }
 }
