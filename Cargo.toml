@@ -6,4 +6,4 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-aether_lib = { git = "https://github.com/Prototype-Aether/Aether-Lib.git", branch = "connection-request" }
+aether_lib = { git = "https://github.com/Prototype-Aether/Aether-Lib.git"}

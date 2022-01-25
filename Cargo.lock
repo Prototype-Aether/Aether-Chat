@@ -12,7 +12,7 @@ dependencies = [
 [[package]]
 name = "aether_lib"
 version = "0.1.0"
-source = "git+https://github.com/Prototype-Aether/Aether-Lib.git?branch=connection-request#b760a0bf6d5cff5fb05ae0657dbe709ceedd22ff"
+source = "git+https://github.com/Prototype-Aether/Aether-Lib.git#f818b45480053521f07972c8fc13164f11aa589f"
 dependencies = [
  "rand",
  "serde",
