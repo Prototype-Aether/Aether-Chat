@@ -3,14 +3,10 @@ use std::io::stdin;
 use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 
 fn main() {
-    println!("Enter username: ");
-    let mut username = String::new();
-    stdin().read_line(&mut username).unwrap();
-
-    username = String::from(username.trim());
-
     let tracker_addr = SocketAddr::new(IpAddr::V4(Ipv4Addr::new(149, 129, 129, 226)), 8982);
-    let aether = Aether::new(username, tracker_addr);
+    let aether = Aether::new(tracker_addr);
+
+    println!("Your id: {}", aether.get_uid());
 
     println!("Enter peer username: ");
     let mut peer_username = String::new();
@@ -20,7 +16,7 @@ fn main() {
 
     aether.start();
 
-    aether.connect(peer_username.clone());
+    aether.connect(&peer_username);
 
     aether.wait_connection(&peer_username).unwrap();
 
