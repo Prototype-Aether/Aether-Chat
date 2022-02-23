@@ -11,3 +11,8 @@ aether_lib = { git = "https://github.com/Prototype-Aether/Aether-Lib.git", branc
 simple_logger = "2.1.0"
 crossbeam = "0.8"
 log = "0.4"
+hyper = { version = "0.14", features = ["full"] }
+tokio = { version = "1", features = ["full"] }
+serde = "1.0"
+serde_json = "1.0"
+
