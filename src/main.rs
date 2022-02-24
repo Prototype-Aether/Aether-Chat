@@ -1,9 +1,8 @@
 use aether_lib::peer::Aether;
 use crossbeam::thread;
 use hyper::{Body, Client, Method, Request};
-use log::info;
 use serde::{Deserialize, Serialize};
-use std::io::stdin;
+use std::io::{stdin, stdout, Write};
 use std::net::{IpAddr, Ipv4Addr, SocketAddr};
 use std::sync::Arc;
 
@@ -78,6 +77,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
     println!("Your username: {}", user_alias);
 
     print!("Enter peer username: ");
+    stdout().flush().unwrap();
     let mut peer_username = String::new();
     stdin().read_line(&mut peer_username).unwrap();
 
@@ -89,10 +89,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error + Send + Sync>> {
 
     aether.connect(&peer_uid);
 
-    info!("Waiting to connect...");
+    println!("Waiting to connect...");
     aether.wait_connection(&peer_uid).unwrap();
 
-    info!("Connected!");
+    println!("Connected!");
 
     thread::scope(|s| {
         let handle_recv = s.spawn(|_| loop {
