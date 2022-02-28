@@ -20,7 +20,7 @@ dependencies = [
 [[package]]
 name = "aether_lib"
 version = "0.1.0"
-source = "git+https://github.com/Prototype-Aether/Aether-Lib.git?branch=log-refactor#ad13016cb250b0860156cc7e113c1805296751be"
+source = "git+https://github.com/Prototype-Aether/Aether-Lib.git#e7e76ee828c803143ba2f8ccd3f70e55d50bf1e5"
 dependencies = [
  "base64",
  "home",
